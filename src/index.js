@@ -39,9 +39,27 @@ module.exports = function toReadable (number) {
         900: "nine hundred",
     };
 
+    function twoDigitNumber(number) {
+        let stringNum = number.toString();
+        if (stringNum[1] == 0) {
+            return obj[number];
+        }
 
+        if (number < 20) {
+            return obj[number];
+        }
+
+        if (number >= 20) {
+            return obj[stringNum[0] * 10] + " " + obj[stringNum[1]];
+        }
+    }
     let stringNum = number.toString();
     if (stringNum.length == 1) {
         return obj[number];
     }
+    if (stringNum.length == 2) {
+return twoDigitNumber(number)
+}
+
+return 0
 }
