@@ -60,6 +60,13 @@ module.exports = function toReadable (number) {
     if (stringNum.length == 2) {
 return twoDigitNumber(number)
 }
+if (stringNum.length == 3) {
+    if (stringNum[1] == 0 && stringNum[2] == 0) {
+        return obj[number];
+    }
 
+    let num = stringNum[1] > 0 ? stringNum[1] + stringNum[2] : stringNum[2];
+    return obj[stringNum[0] * 100] + " " + twoDigitNumber(num);
+}
 return 0
 }
